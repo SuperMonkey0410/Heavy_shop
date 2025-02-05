@@ -1,0 +1,204 @@
+[
+  {
+    "model": "main.product",
+    "pk": 1,
+    "fields": {
+      "title": "Leo T-Shirt- Pale Mauve",
+      "category": 7,
+      "description": "Get your game on in style with our court-ready Leo T-Shirt, crafted from pure cotton for maximum comfort. Featuring custom Sergio Tacchini art at the chest, this premium ringer tee is finished with a contrast collar and cuffs for a retro vibe.\r\n\r\n\r\n\r\n Short sleeve ringer t-shirt\r\n 100% cotton ace jersey\r\n Custom Sergio Tacchini artwork at chest\r\n Contrast rib-knit collar & cuffs\r\n Style #: STS25M51407\r\n Regular fit\r\n Model is 6'1\" (185.5 cm) and wearing size medium (USA) / large (EU)",
+      "quantity": 99,
+      "image": "media/main_product_image/Тачини-футболка-розовая.-1.png",
+      "price": "120.00",
+      "discount": null,
+      "created": "2025-02-02T12:36:35.688Z",
+      "updated": "2025-02-02T12:39:12.084Z",
+      "slug": "leo-t-shirt-pale-mauve",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 2,
+    "fields": {
+      "title": "Leo T-Shirt- Brilliant White",
+      "category": 6,
+      "description": "Get your game on in style with our court-ready Leo T-Shirt, crafted from pure cotton for maximum comfort. Featuring custom Sergio Tacchini art at the chest, this premium ringer tee is finished with a contrast collar and cuffs for a retro vibe.\r\n\r\n\r\n\r\n Short sleeve ringer t-shirt\r\n 100% cotton ace jersey\r\n Custom Sergio Tacchini artwork at chest\r\n Contrast rib-knit collar & cuffs\r\n Style #: STS25M51407\r\n Regular fit\r\n Model is 6'1\" (185.5 cm) and wearing size medium (USA) / large (EU)",
+      "quantity": 56,
+      "image": "media/main_product_image/1.jpg",
+      "price": "42.00",
+      "discount": null,
+      "created": "2025-02-02T12:54:02.663Z",
+      "updated": "2025-02-02T12:54:02.663Z",
+      "slug": "leo-t-shirt-brilliant-white",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        1,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 3,
+    "fields": {
+      "title": "Cielo Velour Polo- Bronze Green",
+      "category": 7,
+      "description": "Inspired by a timeless design from our archive, the Cielo Velour Polo blends heritage aesthetics with modern functionality. Crafted from luxurious velour in a retro color-blocked silhouette, this premium polo features contrast taping stripes, an embroidered 'ST' monogram at the chest, and a notched Johnny collar for extra style points.\r\n\r\nPair with the Cielo Velour Track Pant for the full fit. (Sold separately)\r\n\r\n Premium velour polo\r\n 93% polyester / 7% spandex velour\r\n Rib-knit notched Johnny collar\r\n Contrast shoulder panels\r\n Embroidered 'ST' monogram logo at center chest\r\n Contrast double stripe taping at sleeves\r\n Side-seam vent slits at hem\r\n Style #: STS25M51130\r\n Regular fit\r\n Model is 6'1\" (185.5 cm) and wearing size medium (USA) / large (EU)",
+      "quantity": 25,
+      "image": "media/main_product_image/1_HzKGd7a.jpg",
+      "price": "110.00",
+      "discount": null,
+      "created": "2025-02-02T13:04:09.558Z",
+      "updated": "2025-02-02T13:04:09.558Z",
+      "slug": "cielo-velour-polo-bronze-green",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 4,
+    "fields": {
+      "title": "Adicolor Classic Firebird Loose Track Top",
+      "category": 10,
+      "description": "",
+      "quantity": 55,
+      "image": "media/main_product_image/3_1.png",
+      "price": "85.00",
+      "discount": null,
+      "created": "2025-02-02T13:12:09.043Z",
+      "updated": "2025-02-02T13:12:09.043Z",
+      "slug": "adicolor-classic-firebird-loose-track-top",
+      "available": "in_stock",
+      "size": [
+        2,
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 5,
+    "fields": {
+      "title": "Devonte Track Jacket- Maritime Blue",
+      "category": 13,
+      "description": "The  Devonte Track Jacket is made of our signature crinkle nylon treated with a water-repellent coating and features a Velcro-closure throat strap to keep you protected through inclement weather. A fresh spin on traditional sportswear, this versatile full-zip jacket is complete with spacious pocket storage, elasticated trims, and an embroidered logo at the chest.",
+      "quantity": 48,
+      "image": "media/main_product_image/1.png",
+      "price": "135.00",
+      "discount": "50.00",
+      "created": "2025-02-02T13:22:18.500Z",
+      "updated": "2025-02-02T13:22:18.500Z",
+      "slug": "devonte-track-jacket-maritime-blue",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 6,
+    "fields": {
+      "title": "Pereto Track Jacket- Java",
+      "category": 10,
+      "description": "A perfect blend of comfort and style, the Pereto Track Jacket is crafted from premium double piqué fabric with branded stripe taping down the sleeves for a sporty look. Complete with an embroidered 'ST' monogram logo at the chest, this elevated track jacket is finished with spacious pockets and rib-knit trims.",
+      "quantity": 17,
+      "image": "media/main_product_image/1_jkouxcC.png",
+      "price": "185.00",
+      "discount": null,
+      "created": "2025-02-02T13:24:08.424Z",
+      "updated": "2025-02-02T13:24:08.424Z",
+      "slug": "pereto-track-jacket-java",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        4
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 7,
+    "fields": {
+      "title": "Polo Bear Wool-Cashmere Jumper - Aged Wine Heather",
+      "category": 14,
+      "description": "Наш медведь Polo Bear одет в джемпер крупной вязки, вельветовые брюки и лоскутную куртку из шерстяного твила от Abraham Moon & Sons of England — одной из фабрик, поставляющих галантерейные ткани Polo.",
+      "quantity": 14,
+      "image": "media/main_product_image/1_5WO7mE8.jpg",
+      "price": "350.00",
+      "discount": null,
+      "created": "2025-02-02T13:48:15.577Z",
+      "updated": "2025-02-02T13:48:15.577Z",
+      "slug": "polo-bear-wool-cashmere-jumper-aged-wine-heather",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        1,
+        4
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 8,
+    "fields": {
+      "title": "The Ralph and Ricky Bear Jumper - White",
+      "category": 14,
+      "description": "Хопковый джемпер Ralph Lauren с изображением дуэта медведей Polo Bear, вдохновленным Ральфом и Рики Лоренами.",
+      "quantity": 17,
+      "image": "media/main_product_image/1_WaYR8D2.jpg",
+      "price": "350.00",
+      "discount": null,
+      "created": "2025-02-02T13:49:40.762Z",
+      "updated": "2025-02-02T13:49:40.762Z",
+      "slug": "the-ralph-and-ricky-bear-jumper-white",
+      "available": "in_stock",
+      "size": [
+        2,
+        1
+      ]
+    }
+  },
+  {
+    "model": "main.product",
+    "pk": 9,
+    "fields": {
+      "title": "Jersey Crewneck T-Shirt - Course Pink",
+      "category": 7,
+      "description": "Эта хлопковая футболка-поло, выстиранная для придания ей идеального вида и ощущения носки, станет незаменимой вещью, к которой вы будете тянуться снова и снова.",
+      "quantity": 47,
+      "image": "media/main_product_image/11.jpg",
+      "price": "150.00",
+      "discount": null,
+      "created": "2025-02-02T13:52:44.956Z",
+      "updated": "2025-02-02T13:52:44.956Z",
+      "slug": "jersey-crewneck-t-shirt-course-pink",
+      "available": "in_stock",
+      "size": [
+        3,
+        2,
+        1
+      ]
+    }
+  }
+]

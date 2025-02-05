@@ -1,0 +1,1 @@
+[{"model": "main.size", "pk": 1, "fields": {"size": "S"}}, {"model": "main.size", "pk": 2, "fields": {"size": "M"}}, {"model": "main.size", "pk": 3, "fields": {"size": "L"}}, {"model": "main.size", "pk": 4, "fields": {"size": "XL"}}, {"model": "main.size", "pk": 5, "fields": {"size": "XXL"}}]

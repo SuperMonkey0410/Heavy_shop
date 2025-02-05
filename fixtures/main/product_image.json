@@ -1,0 +1,226 @@
+[
+  {
+    "model": "main.productimage",
+    "pk": 1,
+    "fields": {
+      "product": 1,
+      "image": "media/product_images/Тачини-футболка-розовая.-4jpg.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 2,
+    "fields": {
+      "product": 1,
+      "image": "media/product_images/Тачини-футболка-розовая.-3jpg.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 3,
+    "fields": {
+      "product": 1,
+      "image": "media/product_images/Тачини_футболка_розовая._2.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 4,
+    "fields": {
+      "product": 1,
+      "image": "media/product_images/STS25M51407-620-6_900x.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 5,
+    "fields": {
+      "product": 2,
+      "image": "media/product_images/2.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 6,
+    "fields": {
+      "product": 2,
+      "image": "media/product_images/3.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 7,
+    "fields": {
+      "product": 2,
+      "image": "media/product_images/4.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 8,
+    "fields": {
+      "product": 3,
+      "image": "media/product_images/2.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 9,
+    "fields": {
+      "product": 3,
+      "image": "media/product_images/3.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 10,
+    "fields": {
+      "product": 3,
+      "image": "media/product_images/4_7HEpzaS.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 11,
+    "fields": {
+      "product": 4,
+      "image": "media/product_images/1.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 12,
+    "fields": {
+      "product": 4,
+      "image": "media/product_images/2_1.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 13,
+    "fields": {
+      "product": 4,
+      "image": "media/product_images/4.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 14,
+    "fields": {
+      "product": 5,
+      "image": "media/product_images/2_1_EEXI2Fa.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 15,
+    "fields": {
+      "product": 5,
+      "image": "media/product_images/3_1.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 16,
+    "fields": {
+      "product": 5,
+      "image": "media/product_images/4_GVtbVFA.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 17,
+    "fields": {
+      "product": 6,
+      "image": "media/product_images/2_1_HZLxzLU.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 18,
+    "fields": {
+      "product": 6,
+      "image": "media/product_images/3_1_2pkm5AG.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 19,
+    "fields": {
+      "product": 6,
+      "image": "media/product_images/4_Bu0uBAT.png"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 20,
+    "fields": {
+      "product": 7,
+      "image": "media/product_images/2_5oIuuks.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 21,
+    "fields": {
+      "product": 7,
+      "image": "media/product_images/3_jMnIHLK.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 22,
+    "fields": {
+      "product": 7,
+      "image": "media/product_images/4_8vn3hhA.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 23,
+    "fields": {
+      "product": 8,
+      "image": "media/product_images/2_01bH3Mm.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 24,
+    "fields": {
+      "product": 8,
+      "image": "media/product_images/3_sGTiIuO.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 25,
+    "fields": {
+      "product": 8,
+      "image": "media/product_images/4_iRywA0a.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 26,
+    "fields": {
+      "product": 9,
+      "image": "media/product_images/12.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 27,
+    "fields": {
+      "product": 9,
+      "image": "media/product_images/13.jpg"
+    }
+  },
+  {
+    "model": "main.productimage",
+    "pk": 28,
+    "fields": {
+      "product": 9,
+      "image": "media/product_images/14.jpg"
+    }
+  }
+]
