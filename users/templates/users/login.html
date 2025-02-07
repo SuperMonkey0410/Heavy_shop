@@ -1,0 +1,29 @@
+{% load static %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'users/css/login.css' %}">
+{% endblock %}
+
+{% block content %}
+<header class="header sticky-top d-flex align-items-center">
+    <a class="header-logo" href="/">
+        <img src="{% static 'img/rev.png' %}" alt="Logo">
+    </a>
+</header>
+
+<div class="login">
+    <h1>Login</h1>
+    <form method="post" action='{% url "users:login" %}'>
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Username" required="required" />
+        <input type="password" name="password" placeholder="Password" required="required" />
+        <button type="submit" class="gradient-button">Войти</button>
+        <p></p>
+        <a href="{% url 'users:register' %}">
+            <button type="button" class="gradient-button">Зарегистрироваться</button>
+        </a>
+    </form>
+</div>
+{% endblock %}
+
+{% block footer %} {% endblock %}

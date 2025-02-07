@@ -1,0 +1,105 @@
+{% load static %}
+
+{% block title %} fix it {% endblock %}
+
+{% block css_additional %}
+    <link rel="stylesheet" href="{% static 'users/css/registration.css' %}">
+{% endblock %}
+
+{% block content %}
+<header class="header sticky-top d-flex align-items-center">
+    <a class="header-logo" href="/">
+        <img src="{% static 'img/rev.png' %}" alt="Logo">
+    </a>
+</header>
+<body class="bg-primary">
+<div id="layoutAuthentication">
+    <div id="layoutAuthentication_content">
+        <main>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7">
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert"
+                             style="margin-top: 50px;">
+                            <strong>Hola Muchachos!</strong> Наши Фигурки ждут не дождутся вашей регистрации!
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">×</span>
+                            </button>
+                        </div>
+                        <div class="card shadow-lg border-0 rounded-lg mt-5">
+                            <div class="card-header"><h3 class="text-center font-weight-light my-4">Создать аккаунт</h3>
+                            </div>
+                            <div class="card-body">
+                                <form action='{% url "users:register" %}' method="POST">
+                                    {% csrf_token %}
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="id_username">Имя пользователя</label>
+                                            <input class="form-control py-4" id="id_username" type="text"
+                                                   aria-describedby="usernameHelp"
+                                                   name="username"
+                                                   value="{% if form.username.value %} {{ form.username.value }} {% endif %}"
+                                                   placeholder="Введите имя пользователя"/>
+                                            {% if form.username.errors %}
+                                                <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-12">
+                                            <label class="small mb-1" for="id_email">Адрес электронной почты</label>
+                                            <input class="form-control py-4" id="id_email" type="email"
+                                                   aria-describedby="emailHelp"
+                                                   name="email"
+                                                   value="{% if form.email.value %} {{ form.email.value }} {% endif %}"
+                                                   placeholder="Введите адрес эл. почты"/>
+                                            {% if form.email.errors %}
+                                                <div class="alert alert-danger alert-dismissible fade show">{{form.email.errors}}</div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="id_password1">Пароль</label>
+                                                <input class="form-control py-4" id="id_password1" type="password"
+                                                       name="password1"
+                                                       value="{% if form.password1.value %} {{ form.password1.value }} {% endif %}"
+                                                       placeholder="Введите пароль"/>
+                                                {% if form.password1.errors %}
+                                                    <div class="alert alert-danger alert-dismissible fade show">{{form.password1.errors}}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="small mb-1" for="id_password2">Подтверждение пароля</label>
+                                                <input class="form-control py-4" id="id_password2"
+                                                       type="password"
+                                                       name="password2"
+                                                       value="{% if form.password2.value %} {{ form.password2.value }} {% endif %}"
+                                                       placeholder="Подтвердите пароль"/>
+                                                {% if form.password2.errors %}
+                                                    <div class="alert alert-danger alert-dismissible fade show">{{form.password2.errors}}</div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group mt-4 mb-0">
+                                        <input class="gradient-button" type="submit" value="Создать аккаунт">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="card-footer text-center">
+                                <div class="small"><a href="{% url 'users:login' %}">Уже есть аккаунт? Авторизоваться</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+</div>
+{% endblock %}
+
+{% block footer %} {% endblock %}

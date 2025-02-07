@@ -1,0 +1,77 @@
+/* Убираем отступы и устанавливаем шрифт для всего тела страницы */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #096, #00008B); /* Градиент от зеленого к темно-синему */
+    height: 100vh; /* Высота на весь экран */
+}
+
+/* Стиль для формы входа */
+.login {
+    background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный белый фон для формы */
+    border-radius: 10px; /* Закругленные углы */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); /* Тень для глубины */
+    max-width: 400px; /* Максимальная ширина формы */
+    margin: 100px auto; /* Центрирование формы */
+    padding: 30px; /* Внутренние отступы */
+    color: black; /* Цвет текста */
+}
+
+/* Заголовок формы */
+.login h1 {
+    text-align: center; /* Центрирование заголовка */
+    margin-bottom: 20px; /* Отступ снизу */
+}
+
+/* Стили для формы */
+.login form {
+    display: flex; /* Используем flexbox для вертикального выравнивания */
+    flex-direction: column; /* Вертикальное направление */
+}
+
+/* Поля ввода */
+.login input {
+    padding: 10px; /* Внутренние отступы */
+    margin-bottom: 15px; /* Отступ между полями */
+    border: 1px solid #ccc; /* Светлая граница */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+}
+
+/* Кнопки */
+.login button {
+    padding: 10px; /* Внутренние отступы */
+    border: none; /* Убираем границу */
+    border-radius: 5px; /* Закругленные углы */
+    font-size: 16px; /* Размер шрифта */
+    cursor: pointer; /* Курсор в виде указателя */
+    transition: background 0.3s; /* Плавный переход фона */
+}
+
+/* Градиент для кнопок */
+.gradient-button {
+    background: linear-gradient(135deg, #00aaff, #096); /* Градиент для кнопок */
+    color: white; /* Цвет текста кнопки */
+}
+
+/* Эффект при наведении на кнопку */
+.gradient-button:hover {
+    background: linear-gradient(135deg, #096, #00aaff); /* Изменение градиента при наведении */
+}
+
+/* Стили для параграфа */
+.login p {
+    text-align: center; /* Центрирование текста */
+}
+
+/* Стили для ссылок */
+.login a {
+    color: black; /* Цвет ссылок */
+    text-decoration: none; /* Убираем подчеркивание */
+}
+
+/* Эффект при наведении на ссылку */
+.login a:hover {
+    text-decoration: underline; /* Подчеркивание при наведении */
+}

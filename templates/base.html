@@ -12,33 +12,77 @@
 
     {% comment %} css {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .divider {
+            height: 1px;
+            background-color: #ccc; /* Цвет линии */
+            margin: 8px 0; /* Отступы сверху и снизу */
+        }
+    </style>
 </head>
 <body>
     <header class="header sticky-top d-flex align-items-center">
-        <a class="header-logo" href="/">
-            <img src="{% static 'img/rev.png' %}" alt="">
-        </a>
-        <div class="header-nav d-flex gap-4">
-            <a href="" class="h-profile">
+    <a class="header-logo" href="/">
+        <img src="{% static 'img/rev.png' %}" alt="">
+    </a>
+    <div class="header-nav d-flex gap-4 align-items-center">
+        {% if user.is_authenticated %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href={% url "users:profile" %}>{{ user.username }}</a>
+            </li>
+        {% endif %}
+        <div class="dropdown">
+            <a class="h-profile">
                 <img src="{% static 'img/profile.png' %}" alt="">
             </a>
-            <a href="" class="h-profile">
-                <img src="{% static 'img/cart.png' %}" alt="">
-            </a>
-            <div class="forsearch">
-                <a href="#" id="toggle-search" class="toggle-search">
-                    <img src="{% static 'img/search.png' %}" alt="">
-                </a>
-                <div class="search-popup" id="search-popup" style="display: none;">
-                    <form class="search-form" method="GET" action="" id="search-form">
-                        <div class="input-container">
-                            <input type="text" class="form_input" name="q" placeholder="Search" value="{{ search_query }}">
-                            <button type="submit" class="btnforsearch"></button>
-                        </div>
-                    </form>
-                </div>
+            <div class="dropdown-content">
+                <a href="{% url 'users:login' %}">Логин</a>
+                <a href="{% url 'users:register' %}">Регистрация</a>
+                <div class="divider"></div> <!-- Горизонтальная линия -->
+                <a href="{% url 'users:profile' %}">Личный профиль</a>
             </div>
         </div>
+        <a href="" class="h-profile">
+            <img src="{% static 'img/cart.png' %}" alt="">
+        </a>
+        <div class="forsearch">
+            <a href="#" id="toggle-search" class="toggle-search">
+                <img src="{% static 'img/search.png' %}" alt="">
+            </a>
+            <div class="search-popup" id="search-popup" style="display: none;">
+                <form class="search-form" method="GET" action="" id="search-form">
+                    <div class="input-container">
+                        <input type="text" class="form_input" name="q" placeholder="Search" value="{{ search_query }}">
+                        <button type="submit" class="btnforsearch"></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
     </header>
 
     <div class="container">

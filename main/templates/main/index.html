@@ -47,7 +47,7 @@
                                     <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}" title="{{ product.title }}" style="object-fit: cover; height: 200px;">
                                     <div class="card-body">
                                         <h5 class="card-title">{{ product.title }}</h5>
-                            <a href="{% url 'product_detail' product.id %}" class="card-link">Подробнее</a>
+                                     <a href="{% url 'main:product_detail' product.id %}" class="card-link">Подробнее</a>
 
                                     </div>
                                     <div class="card-footer d-flex justify-content-between">
