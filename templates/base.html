@@ -42,51 +42,99 @@
             background-color: #ccc; /* Цвет линии */
             margin: 8px 0; /* Отступы сверху и снизу */
         }
+        .spacer {
+            margin-top: 30px; /* Увеличьте это значение для большего отступа */
+        }
     </style>
 </head>
 <body>
+    {% block navbar %}
     <header class="header sticky-top d-flex align-items-center">
-    <a class="header-logo" href="/">
-        <img src="{% static 'img/rev.png' %}" alt="">
-    </a>
-    <div class="header-nav d-flex gap-4 align-items-center">
-        {% if user.is_authenticated %}
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href={% url "users:profile" %}>{{ user.username }}</a>
-            </li>
-        {% endif %}
-        <div class="dropdown">
-            <a class="h-profile">
-                <img src="{% static 'img/profile.png' %}" alt="">
-            </a>
-            <div class="dropdown-content">
-                <a href="{% url 'users:login' %}">Логин</a>
-                <a href="{% url 'users:register' %}">Регистрация</a>
-                <div class="divider"></div> <!-- Горизонтальная линия -->
-                <a href="{% url 'users:profile' %}">Личный профиль</a>
-            </div>
-        </div>
-        <a href="" class="h-profile">
-            <img src="{% static 'img/cart.png' %}" alt="">
+        <a class="header-logo" href="/">
+            <img src="{% static 'img/rev.png' %}" alt="">
         </a>
-        <div class="forsearch">
-            <a href="#" id="toggle-search" class="toggle-search">
-                <img src="{% static 'img/search.png' %}" alt="">
+        <div class="header-nav d-flex gap-4 align-items-center">
+            {% if user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" aria-current="page" href={% url "users:profile" %}>{{ user.username }}</a>
+                </li>
+            {% endif %}
+            <div class="dropdown">
+                <a class="h-profile">
+                    <img src="{% static 'img/profile.png' %}" alt="">
+                </a>
+                <div class="dropdown-content">
+                    <a href="{% url 'users:login' %}">Логин</a>
+                    <a href="{% url 'users:register' %}">Регистрация</a>
+                    <div class="divider"></div> <!-- Горизонтальная линия -->
+                    <a href="{% url 'users:profile' %}">Личный профиль</a>
+                </div>
+            </div>
+            <a href="" class="h-profile">
+                <img src="{% static 'img/cart.png' %}" alt="">
             </a>
-            <div class="search-popup" id="search-popup" style="display: none;">
-                <form class="search-form" method="GET" action="" id="search-form">
-                    <div class="input-container">
-                        <input type="text" class="form_input" name="q" placeholder="Search" value="{{ search_query }}">
-                        <button type="submit" class="btnforsearch"></button>
-                    </div>
-                </form>
+            <div class="forsearch">
+                <a href="#" id="toggle-search" class="toggle-search">
+                    <img src="{% static 'img/search.png' %}" alt="">
+                </a>
+                <div class="search-popup" id="search-popup" style="display: none;">
+                    <form class="search-form" method="GET" action="" id="search-form">
+                        <div class="input-container">
+                            <input type="text" class="form_input" name="q" placeholder="Search" value="{{ search_query }}">
+                            <button type="submit" class="btnforsearch"></button>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
-    </div>
     </header>
+    {% endblock navbar %}
 
     <div class="container">
-        {% block content %}{% endblock content %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="rev-head text-uppercase text-center my-4" id="reverence-title">Reverence Interlude - ALL</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3 spacer"> <!-- Добавлен класс spacer для отступа -->
+                {% block left_sidebar %}
+                <h4 class="price-head">Price Range:</h4>
+                <div class="price-range d-flex justify-content-between mb-3">
+                    <input type="number" name="min_price" id="min_price" class="form-control" placeholder="Min Price" value="{{ request.GET.min_price }}" oninput="debounceApplyFilters()">
+                    <input type="number" name="max_price" id="max_price" class="form-control" placeholder="Max Price" value="{{ request.GET.max_price }}" oninput="debounceApplyFilters()">
+                </div>
+
+                <div class="left-side my-4">
+                    <h3 class="sear-head editContent">Категории</h3>
+                    <ul class="w3layouts-box-list">
+                        {% for category in categories %}
+                            <li class="editContent">
+                                <input type="checkbox" class="checked" name="category" value="{{ category.id }}">
+                                <span class="span editContent">{{ category.title }}</span>
+                            </li>
+                        {% empty %}
+                            <li>Категории не найдены.</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <h4 class="size-head">Size:</h4>
+                {% for size in sizes %}
+                    <div class="category-option">
+                        <input type="checkbox" name="size" id="size-{{ size.name }}" value="{{ size.name }}"
+                        {% if size.name in selected_sizes %}checked{% endif %} onchange="applyFilters()">
+                        <label for="size-{{ size.name }}">{{ size.name }}</label>
+                    </div>
+                {% endfor %}
+                {% endblock left_sidebar %}
+            </div>
+
+            <div class="col-md-9">
+                {% block content %}
+                {% endblock content %}
+            </div>
+        </div>
     </div>
 
     <script>
@@ -104,5 +152,10 @@
 
     {% comment %} js for bootstrap {% endcomment %}
     <script src="{% static 'bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    {% block footer %}
+    <footer class="py-4 bg-dark">
+        <p class="m-0 text-center text-white">Copyright © Michanzik Studio 2025</p>
+    </footer>
+    {% endblock %}
 </body>
 </html>
