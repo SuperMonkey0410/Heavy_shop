@@ -13,6 +13,14 @@
     {% comment %} css {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <style>
+        .header {
+            display: flex;
+            align-items: center; /* Центрирует элементы по вертикали */
+        }
+        .header-logo img {
+            height: 50px; /* Установите нужную высоту */
+            width: 100px; /* Автоматическая ширина для сохранения пропорций */
+        }
         .dropdown {
             position: relative;
             display: inline-block;
@@ -45,14 +53,13 @@
         .spacer {
             margin-top: 30px; /* Увеличьте это значение для большего отступа */
         }
-
     </style>
 </head>
 <body>
 {% block navbar %}
 <header class="header sticky-top d-flex align-items-center">
     <a class="header-logo" href="/">
-        <img src="{% static 'img/rev.png' %}" alt="">
+        <img src="{% static 'img/cannes-film-festival-logo-logo-png-transparent.png' %}" alt="">
     </a>
     <div class="header-nav d-flex gap-4 align-items-center">
         {% if user.is_authenticated %}
@@ -94,7 +101,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h1 class="rev-head text-uppercase text-center my-4" id="reverence-title">Reverence Interlude - ALL</h1>
+            <h1 class="rev-head text-uppercase text-center my-4" id="reverence-title"> Bohemian Rhapsody - SHOP</h1>
         </div>
     </div>
     <div class="row">
@@ -140,17 +147,16 @@
 </div>
 
 <script>
-        document.getElementById('toggle-search').addEventListener('click', function(event) {
-            event.preventDefault();
-            const searchPopup = document.getElementById('search-popup');
+    document.getElementById('toggle-search').addEventListener('click', function(event) {
+        event.preventDefault();
+        const searchPopup = document.getElementById('search-popup');
 
-            if (searchPopup.style.display === 'none' || searchPopup.style.display === '') {
-                searchPopup.style.display = 'block';
-            } else {
-                searchPopup.style.display = 'none';
-            }
-        })
-
+        if (searchPopup.style.display === 'none' || searchPopup.style.display === '') {
+            searchPopup.style.display = 'block';
+        } else {
+            searchPopup.style.display = 'none';
+        }
+    })
 </script>
 
 {% comment %} js for bootstrap {% endcomment %}
