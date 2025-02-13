@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.core.paginator import Paginator
 
 from .models import Product, Category
 
@@ -8,9 +9,13 @@ from .models import Product, Category
 
 def index(request):
     """Вывод главной страницы"""
-    products = Product.objects.all()
+    products_list = Product.objects.all()
     categories = Category.objects.all
-    search = request.GET.get('q', None)
+
+    paginator = Paginator(products_list, 12)
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
+    # search = request.GET.get('q', None)
     context = {'products': products, 'categories': categories}
     return render(request, 'main/index.html', context=context)
 

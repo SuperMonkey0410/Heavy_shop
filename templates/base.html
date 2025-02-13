@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+{% load main_tags %}
 
 <html lang="en">
 <head>
@@ -143,7 +144,43 @@
             {% block content %}
             {% endblock content %}
         </div>
+
     </div>
+
+    {% block pagination %}
+    <!-- Пагинация -->
+    {% if products.has_other_pages %}
+    <nav aria-label="Пример навигации по страницам">
+        <div class="container my-5">
+            <ul class="pagination justify-content-center">
+
+                {% if products.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% change_params page=products.previous_page_number %}" aria-label="Предыдущая">
+                            <span aria-hidden="true">«</span>
+                        </a>
+                    </li>
+                {% endif %}
+                {% for page in products.paginator.page_range %}
+                    {% if products.number == page %}
+                        <li class="page-item active"><a class="page-link" href="?page={{ page }}">{{ page }}</a></li>
+                    {% elif page >= products.number|add:-3 and page <= products.number|add:3 %}
+                        <li class="page-item"><a class="page-link" href="?{% change_params page=page %}">{{ page }}</a></li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if products.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% change_params page=products.next_page_number %}" aria-label="Следующая">
+                            <span aria-hidden="true">»</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </nav>
+    {% endif %}
+    {% endblock pagination %}
 </div>
 
 <script>

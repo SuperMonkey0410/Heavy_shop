@@ -7,9 +7,9 @@
 {% block content %}
 <div class="product-list">
     <h1 class="text-center my-4">{{ category.title }}</h1>
-    <div class="card-container d-flex flex-wrap">
+    <div class="row"> <!-- Используем класс row для правильного отображения колонок -->
         {% for product in products.all %}
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-4"> <!-- Используем col-md-4 для 3 колонок -->
             <div class="card h-100">
                 <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}"
                      title="{{ product.title }}" style="object-fit: cover; height: 200px;">

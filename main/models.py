@@ -14,6 +14,7 @@ class Product(models.Model):
     )
 
     title = models.CharField(max_length=100, verbose_name='Название')
+    brand = models.ForeignKey(to='Brand', on_delete=models.CASCADE, blank=True, null=True, verbose_name='Бренд')
     category = models.ForeignKey(to='Category', on_delete=models.CASCADE, verbose_name='Категория')
     description = models.TextField(blank=True, verbose_name='Описание')
     size = models.ManyToManyField(to='Size', blank=True, verbose_name='Размер')
@@ -26,7 +27,6 @@ class Product(models.Model):
     slug = models.SlugField(unique=True, verbose_name='URL')
     available = models.CharField(max_length=50, choices=AVAILABLE_CHOICES, default='in_stock', verbose_name='Наличие')
 
-    # brand = models.CharField(max_length=100, blank=True, verbose_name='Бренд')
 
     def get_absolute_url(self):
         return reverse('product_detail', kwargs={'product_slug': self.slug})
@@ -55,6 +55,10 @@ class Size(models.Model):
         ('L', 'L'),
         ('XL', 'XL'),
         ('XXL', 'XXL'),
+        ('UK 6', 'UK 6'),
+        ('UK 7', 'UK 7'),
+        ('UK 8', 'UK 8'),
+        ('UK 9', 'UK 9'),
     )
 
     size = models.CharField(max_length=10, choices=SIZE_CHOICES, verbose_name='Размер')
@@ -96,4 +100,12 @@ class ProductImage(models.Model):
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
 
+
+class Brand(models.Model):
+    """Модель бренда"""
+    title = models.CharField(max_length=100, verbose_name='Название бренда')
+    slug = models.SlugField(unique=True, verbose_name='URL')
+
+    def __str__(self):
+        return self.title
 

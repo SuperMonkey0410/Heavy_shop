@@ -2,16 +2,18 @@
 
 {% load static %}
 
-{% block title %}Reverence Interlude - Catalog{% endblock title %}
+{% block title %} Bohemian Rhapsody - Catalog{% endblock title %}
 
 {% block content %}
 <div class="product-list">
-    <div class="card-container d-flex flex-wrap">
+    <div class="row"> <!-- Добавлено использование класса row для правильного отображения колонок -->
         {% for product in products %}
-        <div class="col-md-4 mb-4"> <!-- Changed to 4 columns per row on medium screens -->
+        <div class="col-4 mb-4"> <!-- Используем col-4 для 3 колонок -->
             <div class="card h-100">
+                        <a href="{% url 'main:product_detail' product.slug %}">
                 <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.title }}"
                      title="{{ product.title }}" style="object-fit: cover; height: 200px;">
+                         </a>
                 <div class="card-body">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <a href="{% url 'main:product_detail' product.slug %}" class="card-link">Подробнее</a>
@@ -74,10 +76,5 @@
     }
 
     document.addEventListener('DOMContentLoaded', updateTitle);
-
-
-
-
-
 </script>
 {% endblock content %}
