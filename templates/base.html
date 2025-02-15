@@ -87,7 +87,7 @@
                 <img src="{% static 'img/search.png' %}" alt="">
             </a>
             <div class="search-popup" id="search-popup" style="display: none;">
-                <form class="search-form" method="GET" action="" id="search-form">
+                <form class="search-form" method="GET" action="{% url 'main:search' %}" id="search-form">
                     <div class="input-container">
                         <input type="text" class="form_input" name="q" placeholder="Search" value="{{ search_query }}">
                         <button type="submit" class="btnforsearch"></button>
