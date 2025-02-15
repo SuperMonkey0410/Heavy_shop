@@ -119,7 +119,7 @@
             <div class="left-side my-4">
                 <h3 class="sear-head editContent">Категории</h3>
                 <ul class="w3layouts-box-list">
-                    {% for category in categories %}
+                    {% for category in category_list %}
                     <li class="editContent">
                         <a href="{% url 'main:product_catalog' category.slug %}" class="category-link">{{ category.title }}</a>
                     </li>
