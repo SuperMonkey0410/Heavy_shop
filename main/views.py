@@ -7,11 +7,9 @@ from .utils import q_search
 
 
 def index(request, category_slug=None):
-    """Вывод главной страницы + фильтрация по категориям"""
+    """Вывод главной страницы + фильтрация по категориям + поиск"""
     category_list = Category.objects.all()
     search_query = request.GET.get('q', None)
-
-    # Инициализация переменной categories
     categories = Category.objects.all()
 
     if category_slug:

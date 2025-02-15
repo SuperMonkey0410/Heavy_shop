@@ -1,7 +1,7 @@
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, HttpResponse, HttpResponseRedirect, redirect
-from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm
+from .forms import UserLoginForm, UserRegistrationForm, UserProfileForm, ProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
 
@@ -34,9 +34,18 @@ def login(request):
     context = {'form': form}
     return render(request, 'users/login.html', context=context)
 
+
 @login_required
 def profile(request):
-    return render(request, 'users/profile.html')
+    if request.method == 'POST':
+        form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
+        if form.is_valid():
+            form.save()
+    else:
+        form = ProfileForm(instance=request.user)
+    context = {'form': form}
+    return render(request, 'users/profile.html', context=context)
+
 
 @login_required
 def logout(request):
