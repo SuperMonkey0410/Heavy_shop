@@ -10,9 +10,13 @@
 
     {% comment %} bootstrap {% endcomment %}
     <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <!-- Если хотите использовать CDN, закомментируйте предыдущую строку и раскомментируйте следующую -->
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"/> -->
+    <script src="https://kit.fontawesome.com/c001ee46a7.js" crossorigin="anonymous"></script>
 
     {% comment %} css {% endcomment %}
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
     <style>
         .header {
             display: flex;
@@ -87,8 +91,8 @@
                 </div>
             </div>
         {% endif %}
-        <a href="" class="h-profile">
-            <img src="{% static 'img/cart.png' %}" alt="">
+        <a href="{% url 'users:users_cart' %}" class="h-profile">
+            <img src="{% static 'img/cart.png' %}" alt="Корзина">
         </a>
         <div class="forsearch">
             <a href="#" id="toggle-search" class="toggle-search">

@@ -42,7 +42,7 @@
                                    name="first_name"
                                    placeholder="Введите ваше имя"
                                    value="{{ form.first_name.value }}"
-                                   required>
+                                   >
                             {% if form.first_name.errors %}
                             <div class="alert alert-danger alert-dismissible fade show">{{form.first_name.errors}}</div>
                             {% endif %}
@@ -53,7 +53,7 @@
                                    name="last_name"
                                    placeholder="Введите вашу фамилию"
                                    value="{{ form.last_name.value }}"
-                                   required>
+                                   >
                             {% if form.last_name.errors %}
                             <div class="alert alert-danger alert-dismissible fade show">{{form.last_name.errors}}</div>
                             {% endif %}
@@ -64,7 +64,7 @@
                                    name="username"
                                    placeholder="Введите ваше имя пользователя"
                                    value="{{ form.username.value }}"
-                                   required>
+                                   >
                             {% if form.username.errors %}
                             <div class="alert alert-danger alert-dismissible fade show">{{form.username.errors}}</div>
                             {% endif %}
@@ -92,7 +92,7 @@
                     <h3 class="text-center mb-4">Корзина</h3>
                     <div class="container" id="cart-items-container">
                         <!-- Разметка корзины -->
-                        {% comment%} {% include "carts/includes/included_cart.html" %} --> {% endcomment %}
+                        {% include "carts/includes/included_cart.html" %}
                         <!-- Закончилась разметка корзины -->
                     </div>
                 </div>

@@ -24,8 +24,9 @@
                     </div>
                     <div class="btn-group" role="group" aria-label="Product actions">
                         <button type="button" class="btn btn-primary"><i class="fa-regular fa-heart fa-lg"></i></button>
+                        <a href="{% url 'carts:cart_add' product.slug %}">
                         <button type="submit" name="action" value="{{ product.id }}" class="btn btn-primary"><i
-                                class="fa-solid fa-cart-shopping"></i></button>
+                                class="fa-solid fa-cart-shopping"></i></button></a>
                     </div>
                 </div>
             </div>

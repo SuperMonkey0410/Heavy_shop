@@ -1,0 +1,120 @@
+{% load static %}
+{% load carts_tags %}
+
+{% user_cart request as carts %}
+
+{% block content %}
+<div class="card mb-3 text-bg-light shadow-lg" style="width: 100%;">
+    {% for cart in carts %}
+    <div class="card-header">
+        <h5 class="card-title">{{ cart.product.title }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+            <div class="row text-center">
+                <div class="col p-0">
+                    <div class="input-group">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-dark btn-sm decrement"
+                                data-cart-id="{{ cart.id }}" data-product-slug="{{ cart.product.slug }}" data-cart-change-url="{% url 'carts:cart_change' cart.product.slug %}">-</button>
+                        </span>
+                        <input type="text" class="form-control number" value="{{ cart.quantity }}" readonly data-cart-id="{{ cart.id }}">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-dark btn-sm increment"
+                                data-cart-id="{{ cart.id }}" data-product-slug="{{ cart.product.slug }}" data-cart-change-url="{% url 'carts:cart_change' cart.product.slug %}">+</button>
+                        </span>
+                    </div>
+                </div>
+                <div class="col p-0">
+                    {% if cart.product.discount %}
+                    <p>
+                        <span style="text-decoration: line-through;">{{ cart.product.price|floatformat:0 }} $</span>
+                        <span style="color: red;">{{ cart.product.get_discounted_price|floatformat:0 }} $</span>
+                        = <span class="product-price">{{ cart.products_price|floatformat:0 }}</span> $
+                    </p>
+                    {% else %}
+                    <p>x {{ cart.product.price|floatformat:0 }} $ = <span class="product-price">{{ cart.products_price|floatformat:0 }}</span> $</p>
+                    {% endif %}
+                </div>
+                <div class="col p-0">
+                    <a href="{% url 'carts:cart_remove' cart.id %}" class="remove-from-cart" data-cart-id="{{ cart.id }}">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </a>
+                </div>
+            </div>
+        </li>
+    </ul>
+    {% endfor %}
+</div>
+
+<div class="card mb-3 shadow-lg">
+    <div class="card-footer">
+        <p class="float-left">Итого <strong id="total-quantity">{{ carts.total_quantity }}</strong> товар(а) на сумму</p>
+        <h4 class="float-left"><strong id="total-price">{{ carts.total_price|floatformat:0 }} $</strong></h4>
+    </div>
+</div>
+
+{% if carts %}
+<a class="btn btn-dark" href="">
+    Оформить заказ
+</a>
+{% endif %}
+{% endblock %}
+<script src="https://kit.fontawesome.com/c001ee46a7.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    function updateTotals() {
+        let totalQuantity = 0;
+        let totalPrice = 0;
+
+        $('.list-group-item').each(function() {
+            const quantity = parseInt($(this).find('input.number').val());
+            const price = parseFloat($(this).find('.product-price').text());
+            totalQuantity += quantity;
+            totalPrice += (quantity * price);
+        });
+
+        $('#total-quantity').text(totalQuantity);
+        $('#total-price').text(totalPrice.toFixed(0) + ' $');
+    }
+
+    $('.increment').click(function() {
+        var cartId = $(this).data('cart-id');
+        var url = $(this).data('cart-change-url');
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                'action': 'increment',
+                'cart_id': cartId,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                $('input[data-cart-id="' + cartId + '"]').val(response.new_quantity);
+                updateTotals(); // Обновляем общую сумму и количество
+            }
+        });
+    });
+
+    $('.decrement').click(function() {
+        var cartId = $(this).data('cart-id');
+        var url = $(this).data('cart-change-url');
+
+        $.ajax({
+            url: url,
+            type: 'POST',
+            data: {
+                'action': 'decrement',
+                'cart_id': cartId,
+                'csrfmiddlewaretoken': '{{ csrf_token }}'
+            },
+            success: function(response) {
+                $('input[data-cart-id="' + cartId + '"]').val(response.new_quantity);
+                updateTotals(); // Обновляем общую сумму и количество
+            }
+        });
+    });
+});
+</script>
