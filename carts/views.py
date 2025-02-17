@@ -32,7 +32,7 @@ def cart_add(request, product_slug):
 
 
 def cart_change(request, product_slug):
-    """Изменение количества товара в корзине"""
+    """Изменение количества товара в корзине. Ajax нерабочий"""
     if request.method == 'POST':
         action = request.POST.get('action')
         cart_id = request.POST.get('cart_id')
